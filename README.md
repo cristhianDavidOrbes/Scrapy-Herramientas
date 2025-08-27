@@ -1,7 +1,7 @@
 
 # Proyecto Scrapy `v`
 
-Este repositorio contiene un proyecto Scrapy llamado `v` para extraer datos de sitios web de manera eficiente. Este README describe cómo instalar, configurar, ejecutar y exportar datos del spider.
+Este repositorio contiene un proyecto Scrapy llamado `Scrapy-Herramientas` para extraer datos de sitios web (http://quotes.toscrape.com/) de manera eficiente. Este README describe cómo instalar, configurar, ejecutar y exportar datos del spider.
 
 ## Requisitos
 
@@ -14,11 +14,11 @@ Este repositorio contiene un proyecto Scrapy llamado `v` para extraer datos de s
 1. Clonar el repositorio:
 
 ```bash
-git clone https://github.com/tu_usuario/tu_repositorio.git
+git clone https://github.com/
 cd tu_repositorio
 ```
 
-2. Crear un entorno virtual (opcional):
+2. Crear un entorno virtual:
 
 ```bash
 python -m venv env
