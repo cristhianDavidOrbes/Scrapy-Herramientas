@@ -1,18 +1,20 @@
 import scrapy
+import time
 
-class QuotesSpider(scrapy.Spider):
-    name = "quotes"
-    start_urls = ["http://quotes.toscrape.com/"]
 
-    def parse(self, response):# solicitud y respuesta
-        for quote in response.css("div.quote"):
-            yield {
-                "text": quote.css("span.text::text").get(),
-                "author": quote.css("small.author::text").get(),
-                "tags": quote.css("div.tags a.tag::text").getall(),
-            }
+class WasteAISpider(scrapy.Spider):
+    name = "waste_ai"
+    start_urls = ["https://worldmetrics.org/ai-in-the-waste-industry-statistics/"]
 
-        # Paginación: seguir enlace "Next"
-        next_page = response.css("li.next a::attr(href)").get()
-        if next_page:
-            yield response.follow(next_page, self.parse)
+    def parse(self, response):
+
+        stats = response.css("ul li p::text").getall()
+
+
+        stats = [s.strip() for s in stats if s.strip()]
+
+
+        yield {
+            "ai_waste_statistics": "\n".join(stats),
+            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
+        }
